@@ -18,6 +18,8 @@ Dan membuat Landing Page baru khusus Prioritas Dana di website ACC One.
 - POST /restv2/acccash/transactionplafond/checkplafondacccash
 - POST /restv2/acccash/transactionplafond/updateflagreadplafond
 - POST /restv2/acccash/transactionplafond/getwordproductacccash
+- POST /restv2/acccash/transactionplafond/checksourceacccash
+- POST /restv2/acccash/transactionplafond/checktopupacccash
 
 ````
 
@@ -174,7 +176,19 @@ _Response (200 - OK)_
 ```json
 {
         "out_stat": "T",
-        "out_mess": "DATA BERHASIL"
+        "out_mess": "DATA BERHASIL",
+        "out_data": [
+        {
+            "NOMINAL": "8000000",
+            "PRODUCT": "Upgrade Asuransi",
+            "WORDING": "E-endorsement langsung terbit",
+            "ID": "4",
+            "FLAG_READ": "Y",
+            "FLAG_CALCULATOR": "N",
+            "SOURCE": "ENDORSEMENT",
+            "STATUS_APPL": null
+        }
+    ]
 }
 ```
 
@@ -554,6 +568,95 @@ _Response (200)_
 {
     "OUT_STAT": "F",
     "OUT_MESS": "Something went wrong",
+    "OUT_DATA": []
+}
+```
+
+## POST /restv2/acccash/transactionplafond/checksourceacccash
+
+> For checking the product source
+
+_Request Header_
+```json
+{
+    "X-Content-Type-Options": "nosniff",
+    "X-XSS-Protection": "1; mode=block",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Content-Type": "application/json",
+    "APIKey": "Rz5yS2oiT45Kio1WYOLO"
+}
+```
+
+_Request Body_
+```json
+{
+    "doCheckSourceAcccash" : {
+        "P_NO_AGGR" : "01100102003550849"
+    }
+}
+```
+
+_Response (200 - OK)_
+```json
+{
+    "OUT_STAT": "T",
+    "OUT_MESS": "DATA BERHASIL DIPROSES",
+    "OUT_DATA": [
+        {
+            "SOURCE": "ENDORSEMENT"
+        }
+    ]
+}
+```
+
+_Response (200)_
+```json
+{
+    "OUT_STAT": "F",
+    "OUT_MESS": "ERROR",
+    "OUT_DATA": []
+}
+```
+
+## POST /restv2/acccash/transactionplafond/checktopupacccash
+
+> Check that the parent agreement already has child agreement or not
+
+_Request Header_
+```json
+{
+    "X-Content-Type-Options": "nosniff",
+    "X-XSS-Protection": "1; mode=block",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Content-Type": "application/json",
+    "APIKey": "Rz5yS2oiT45Kio1WYOLO"
+}
+```
+
+_Request Body_
+```json
+{
+    "doCheckTopupAcccash" : {
+        "P_NO_AGGR" : null
+    }
+}
+```
+
+_Response (200 - OK)_
+```json
+{
+    "OUT_STAT": "T",
+    "OUT_MESS": "Data ditemukan",
+}
+```
+
+_Response (200)_
+```json
+{
+    "OUT_STAT": "F",
+    "OUT_MESS": "Data tidak ditemukan",
     "OUT_DATA": []
 }
 ```
