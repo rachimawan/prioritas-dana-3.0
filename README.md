@@ -649,6 +649,11 @@ _Response (200 - OK)_
 {
     "OUT_STAT": "T",
     "OUT_MESS": "Data ditemukan",
+    "OUT_DATA": [
+        {
+            "LIST": "Pendanaan Jangka Pendek-01100103004798554"
+        }
+    ]
 }
 ```
 
