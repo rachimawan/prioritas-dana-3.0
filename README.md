@@ -20,6 +20,8 @@ Dan membuat Landing Page baru khusus Prioritas Dana di website ACC One.
 - POST /restv2/acccash/transactionplafond/getwordproductacccash
 - POST /restv2/acccash/transactionplafond/checksourceacccash
 - POST /restv2/acccash/transactionplafond/checktopupacccash
+- POST /restv2/acccash/transactionplafond/getphoneacccash
+- POST /restv2/acccash/transactionplafond/checkphoneacccash
 
 ````
 
@@ -662,6 +664,101 @@ _Response (200)_
 {
     "OUT_STAT": "F",
     "OUT_MESS": "Data tidak ditemukan",
+    "OUT_DATA": []
+}
+```
+
+## POST /restv2/acccash/transactionplafond/getphoneacccash
+
+> IF the customer input their car police, then they have to input their last 3 digit phone number
+
+_Request Header_
+```json
+{
+    "X-Content-Type-Options": "nosniff",
+    "X-XSS-Protection": "1; mode=block",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Content-Type": "application/json",
+    "APIKey": "Rz5yS2oiT45Kio1WYOLO"
+}
+```
+
+_Request Body_
+```json
+{
+    "doGetPhoneAcccash" : {
+        "P_NOPOL" : "B1357UFY"
+    }
+}
+```
+
+_Response (200 - OK)_
+```json
+{
+    "OUT_STAT": "T",
+    "OUT_MESS": "DATA DITEMUKAN",
+    "OUT_DATA": [
+        {
+            "PHONE_NUMBER": "082111137XXX"
+        }
+    ]
+}
+```
+
+_Response (200)_
+```json
+{
+    "OUT_STAT": "F",
+    "OUT_MESS": "TERJADI KESALAHAN",
+    "OUT_DATA": []
+}
+```
+
+## POST /restv2/acccash/transactionplafond/checkphoneacccash
+
+> IF the customer input their car police, then they have to input their last 3 digit phone number
+
+_Request Header_
+```json
+{
+    "X-Content-Type-Options": "nosniff",
+    "X-XSS-Protection": "1; mode=block",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Content-Type": "application/json",
+    "APIKey": "Rz5yS2oiT45Kio1WYOLO"
+}
+```
+
+_Request Body_
+```json
+{
+    "doCheckPhoneAcccash" : {
+        "P_NOPOL" : "B1357UFY",
+        "P_PHONE" : "777"
+    }
+}
+```
+
+_Response (200 - OK)_
+```json
+{
+    "OUT_STAT": "T",
+    "OUT_MESS": "DATA DITEMUKAN",
+    "OUT_DATA": [
+        {
+            "NO_AGGR": "01100102003072169"
+        }
+    ]
+}
+```
+
+_Response (200)_
+```json
+{
+    "OUT_STAT": "F",
+    "OUT_MESS": "TERJADI KESALAHAN",
     "OUT_DATA": []
 }
 ```
