@@ -22,6 +22,11 @@ Dan membuat Landing Page baru khusus Prioritas Dana di website ACC One.
 - POST /restv2/acccash/transactionplafond/checktopupacccash
 - POST /restv2/acccash/transactionplafond/getphoneacccash
 - POST /restv2/acccash/transactionplafond/checkphoneacccash
+- POST /restv2/acccash/transactionplafond/getplafondpbacccash
+- POST /restv2/acccash/transactionplafond/genfilterbrandacccash
+- POST /restv2/acccash/transactionplafond/genfiltermodelacccash
+- POST /restv2/acccash/transactionplafond/genfiltertypeacccash
+- POST /restv2/acccash/transactionplafond/genfilteryearacccash
 
 ````
 
@@ -749,6 +754,619 @@ _Response (200 - OK)_
     "OUT_DATA": [
         {
             "NO_AGGR": "01100102003072169"
+        }
+    ]
+}
+```
+
+_Response (200)_
+```json
+{
+    "OUT_STAT": "F",
+    "OUT_MESS": "TERJADI KESALAHAN",
+    "OUT_DATA": []
+}
+```
+
+## POST /restv2/acccash/transactionplafond/getplafondpbacccash
+
+> Simulation to calculate plafond based on BTMY (Brand, Type, Model, Year)
+
+_Request Header_
+```json
+{
+    "X-Content-Type-Options": "nosniff",
+    "X-XSS-Protection": "1; mode=block",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Content-Type": "application/json",
+    "APIKey": "Rz5yS2oiT45Kio1WYOLO"
+}
+```
+
+_Request Body_
+```json
+{
+    "doGetPlafondPbAcccash" : {
+        "P_CD_BRAND" : null,
+        "P_CD_TYPE" : null,
+        "P_CD_MODEL" : null,
+        "P_TAHUN" : null,
+        "P_LANGUAGE" : null
+    }
+} 
+```
+
+_Response (200 - OK)_
+```json
+{
+    "OUT_STAT": "T",
+    "OUT_MESS": "DATA BERHASIL DIPROSES",
+    "OUT_DATA": [
+        {
+            "PLAFOND": "27000000"
+        }
+    ]
+}
+```
+
+_Response (200)_
+```json
+{
+    "OUT_STAT": "F",
+    "OUT_MESS": "TERJADI KESALAHAN",
+    "OUT_DATA": []
+}
+```
+
+## POST /restv2/acccash/transactionplafond/genfilterbrandacccash
+
+> Dropdown field for Brand that used in ACC Cash
+
+_Request Header_
+```json
+{
+    "X-Content-Type-Options": "nosniff",
+    "X-XSS-Protection": "1; mode=block",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Content-Type": "application/json",
+    "APIKey": "Rz5yS2oiT45Kio1WYOLO"
+}
+```
+
+_Request Body_
+```json
+{
+    "doGenFilterBrandAcccash" : {
+        "P_LANGUAGE" : "IN"
+    }
+}
+```
+
+_Response (200 - OK)_
+```json
+{
+    "OUT_STAT": "T",
+    "OUT_MESS": "DATA MERK DITEMUKAN",
+    "OUT_DATA": [
+        {
+            "CD_BRAND": "001",
+            "DESC_BRAND": "TOYOTA"
+        },
+        {
+            "CD_BRAND": "002",
+            "DESC_BRAND": "DAIHATSU"
+        },
+        {
+            "CD_BRAND": "003",
+            "DESC_BRAND": "ISUZU"
+        },
+        {
+            "CD_BRAND": "004",
+            "DESC_BRAND": "BMW"
+        },
+        {
+            "CD_BRAND": "005",
+            "DESC_BRAND": "PEUGEOT"
+        },
+        {
+            "CD_BRAND": "007",
+            "DESC_BRAND": "MITSUBISHI"
+        },
+        {
+            "CD_BRAND": "008",
+            "DESC_BRAND": "SUZUKI"
+        },
+        {
+            "CD_BRAND": "009",
+            "DESC_BRAND": "HONDA"
+        },
+        {
+            "CD_BRAND": "010",
+            "DESC_BRAND": "MAZDA"
+        },
+        {
+            "CD_BRAND": "012",
+            "DESC_BRAND": "MERCEDES"
+        },
+        {
+            "CD_BRAND": "014",
+            "DESC_BRAND": "AUDI"
+        },
+        {
+            "CD_BRAND": "015",
+            "DESC_BRAND": "NISSAN"
+        },
+        {
+            "CD_BRAND": "023",
+            "DESC_BRAND": "HYUNDAI"
+        },
+        {
+            "CD_BRAND": "025",
+            "DESC_BRAND": "KIA"
+        },
+        {
+            "CD_BRAND": "038",
+            "DESC_BRAND": "RENAULT"
+        },
+        {
+            "CD_BRAND": "042",
+            "DESC_BRAND": "VOLKSWAGEN"
+        },
+        {
+            "CD_BRAND": "197",
+            "DESC_BRAND": "DATSUN"
+        },
+        {
+            "CD_BRAND": "267",
+            "DESC_BRAND": "WULING"
+        },
+        {
+            "CD_BRAND": "268",
+            "DESC_BRAND": "DFSK"
+        }
+    ]
+}
+```
+
+_Response (200)_
+```json
+{
+    "OUT_STAT": "F",
+    "OUT_MESS": "TERJADI KESALAHAN",
+    "OUT_DATA": []
+}
+```
+
+## POST /restv2/acccash/transactionplafond/genfiltermodelacccash
+
+> Dropdown field for Model that used in ACC Cash
+
+_Request Header_
+```json
+{
+    "X-Content-Type-Options": "nosniff",
+    "X-XSS-Protection": "1; mode=block",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Content-Type": "application/json",
+    "APIKey": "Rz5yS2oiT45Kio1WYOLO"
+}
+```
+
+_Request Body_
+```json
+{
+    "doGenFilterModelAcccash" : {
+        "P_CD_BRAND" : "",
+        "P_CD_TYPE" : ""
+    }
+}
+```
+
+_Response (200 - OK)_
+```json
+{
+    "OUT_STAT": "T",
+    "OUT_MESS": "DATA MODEL DITEMUKAN",
+    "OUT_DATA": [
+        {
+            "CD_MODEL": "001",
+            "DESC_MODEL": "2.0 G M/T"
+        },
+        {
+            "CD_MODEL": "002",
+            "DESC_MODEL": "2.0 G A/T"
+        },
+        {
+            "CD_MODEL": "003",
+            "DESC_MODEL": "2.0 G M/T LUX"
+        },
+        {
+            "CD_MODEL": "004",
+            "DESC_MODEL": "2.0 G A/T LUX"
+        },
+        {
+            "CD_MODEL": "005",
+            "DESC_MODEL": "2.0 V M/T"
+        },
+        {
+            "CD_MODEL": "006",
+            "DESC_MODEL": "2.0 V A/T"
+        },
+        {
+            "CD_MODEL": "007",
+            "DESC_MODEL": "2.0 V A/T LUX"
+        },
+        {
+            "CD_MODEL": "008",
+            "DESC_MODEL": "2.0 V M/T LUX"
+        },
+        {
+            "CD_MODEL": "009",
+            "DESC_MODEL": "2.0 Q M/T"
+        },
+        {
+            "CD_MODEL": "010",
+            "DESC_MODEL": "2.0 Q A/T"
+        },
+        {
+            "CD_MODEL": "011",
+            "DESC_MODEL": "2.4G M/TDSL"
+        },
+        {
+            "CD_MODEL": "012",
+            "DESC_MODEL": "2.4G A/TDSL"
+        },
+        {
+            "CD_MODEL": "013",
+            "DESC_MODEL": "2.4G M/TDSL LUX"
+        },
+        {
+            "CD_MODEL": "014",
+            "DESC_MODEL": "2.4G A/TDSL LUX"
+        },
+        {
+            "CD_MODEL": "015",
+            "DESC_MODEL": "2.4V M/TDSL"
+        },
+        {
+            "CD_MODEL": "016",
+            "DESC_MODEL": "2.4V A/TDSL"
+        },
+        {
+            "CD_MODEL": "017",
+            "DESC_MODEL": "2.4V M/TDSL LUX"
+        },
+        {
+            "CD_MODEL": "018",
+            "DESC_MODEL": "2.4V A/TDSL LUX"
+        },
+        {
+            "CD_MODEL": "021",
+            "DESC_MODEL": "2.0Q M/T VNTRER"
+        },
+        {
+            "CD_MODEL": "022",
+            "DESC_MODEL": "2.0Q A/T VNTRER"
+        },
+        {
+            "CD_MODEL": "025",
+            "DESC_MODEL": "2.4Q A/TDSLVNTR"
+        },
+        {
+            "CD_MODEL": "026",
+            "DESC_MODEL": "2.4Q M/TDSLVNTR"
+        }
+    ]
+}
+```
+
+_Response (200)_
+```json
+{
+    "OUT_STAT": "F",
+    "OUT_MESS": "TERJADI KESALAHAN",
+    "OUT_DATA": []
+}
+```
+
+## POST /restv2/acccash/transactionplafond/genfiltertypeacccash
+
+> Dropdown field for Type that used in ACC Cash
+
+_Request Header_
+```json
+{
+    "X-Content-Type-Options": "nosniff",
+    "X-XSS-Protection": "1; mode=block",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Content-Type": "application/json",
+    "APIKey": "Rz5yS2oiT45Kio1WYOLO"
+}
+```
+
+_Request Body_
+```json
+{
+    "doGenFilterTypeAcccash" : {
+        "P_CD_BRAND" : ""
+    }
+}
+```
+
+_Response (200 - OK)_
+```json
+{
+    "OUT_STAT": "T",
+    "OUT_MESS": "DATA TIPE DITEMUKAN",
+    "OUT_DATA": [
+        {
+            "CD_TYPE": "A06",
+            "DESC_TYPE": "COROLLA ALTIS"
+        },
+        {
+            "CD_TYPE": "A09",
+            "DESC_TYPE": "AVANZA"
+        },
+        {
+            "CD_TYPE": "A19",
+            "DESC_TYPE": "ALPHARD"
+        },
+        {
+            "CD_TYPE": "A20",
+            "DESC_TYPE": "AGYA"
+        },
+        {
+            "CD_TYPE": "A21",
+            "DESC_TYPE": "COROLLA CROSS"
+        },
+        {
+            "CD_TYPE": "A22",
+            "DESC_TYPE": "NEW AGYA"
+        },
+        {
+            "CD_TYPE": "C01",
+            "DESC_TYPE": "CROWN"
+        },
+        {
+            "CD_TYPE": "C07",
+            "DESC_TYPE": "CALYA"
+        },
+        {
+            "CD_TYPE": "C09",
+            "DESC_TYPE": "C-HR"
+        },
+        {
+            "CD_TYPE": "E01",
+            "DESC_TYPE": "CAMRY"
+        },
+        {
+            "CD_TYPE": "E02",
+            "DESC_TYPE": "NEW CAMRY"
+        },
+        {
+            "CD_TYPE": "E04",
+            "DESC_TYPE": "ALL NEW CAMRY"
+        },
+        {
+            "CD_TYPE": "E05",
+            "DESC_TYPE": "ALL NEW VIOS"
+        },
+        {
+            "CD_TYPE": "E06",
+            "DESC_TYPE": "ALL NEW ALTIS"
+        },
+        {
+            "CD_TYPE": "E07",
+            "DESC_TYPE": "ALL NEW ALPHARD"
+        },
+        {
+            "CD_TYPE": "E08",
+            "DESC_TYPE": "ALL NEW AVANZA"
+        },
+        {
+            "CD_TYPE": "E09",
+            "DESC_TYPE": "ALL NEW YARIS"
+        },
+        {
+            "CD_TYPE": "E11",
+            "DESC_TYPE": "ETIOS"
+        },
+        {
+            "CD_TYPE": "E13",
+            "DESC_TYPE": "ALLNEW FORTUNER"
+        },
+        {
+            "CD_TYPE": "E14",
+            "DESC_TYPE": "ALL NEW HILUX"
+        },
+        {
+            "CD_TYPE": "F03",
+            "DESC_TYPE": "FORTUNER"
+        },
+        {
+            "CD_TYPE": "F04",
+            "DESC_TYPE": "FT86"
+        },
+        {
+            "CD_TYPE": "G02",
+            "DESC_TYPE": "GRAND AVANZA"
+        },
+        {
+            "CD_TYPE": "H01",
+            "DESC_TYPE": "HARRIER"
+        },
+        {
+            "CD_TYPE": "H02",
+            "DESC_TYPE": "HI-LUX"
+        },
+        {
+            "CD_TYPE": "K01",
+            "DESC_TYPE": "KIJANG"
+        },
+        {
+            "CD_TYPE": "K02",
+            "DESC_TYPE": "KIJANG SUPER"
+        },
+        {
+            "CD_TYPE": "K03",
+            "DESC_TYPE": "KIJANG JANTAN"
+        },
+        {
+            "CD_TYPE": "K04",
+            "DESC_TYPE": "KIJANG ROVER"
+        },
+        {
+            "CD_TYPE": "K05",
+            "DESC_TYPE": "NEW KIJANG"
+        },
+        {
+            "CD_TYPE": "K06",
+            "DESC_TYPE": "NEW KIJANG EFI"
+        },
+        {
+            "CD_TYPE": "K08",
+            "DESC_TYPE": "KIJANG INNOVA"
+        },
+        {
+            "CD_TYPE": "K09",
+            "DESC_TYPE": "NEW INNOVA"
+        },
+        {
+            "CD_TYPE": "K11",
+            "DESC_TYPE": "ALL NEW INNOVA"
+        },
+        {
+            "CD_TYPE": "L01",
+            "DESC_TYPE": "LAND CRUISER"
+        },
+        {
+            "CD_TYPE": "L03",
+            "DESC_TYPE": "LIMO"
+        },
+        {
+            "CD_TYPE": "M04",
+            "DESC_TYPE": "MARK X"
+        },
+        {
+            "CD_TYPE": "N03",
+            "DESC_TYPE": "NEW AVANZA"
+        },
+        {
+            "CD_TYPE": "N05",
+            "DESC_TYPE": "NEW ALPHARD"
+        },
+        {
+            "CD_TYPE": "N07",
+            "DESC_TYPE": "NEW FORTUNER"
+        },
+        {
+            "CD_TYPE": "N08",
+            "DESC_TYPE": "NEW YARIS"
+        },
+        {
+            "CD_TYPE": "N09",
+            "DESC_TYPE": "NAV 1"
+        },
+        {
+            "CD_TYPE": "N10",
+            "DESC_TYPE": "NEW HI-LUX"
+        },
+        {
+            "CD_TYPE": "P06",
+            "DESC_TYPE": "PRIUS"
+        },
+        {
+            "CD_TYPE": "R02",
+            "DESC_TYPE": "RAV 4"
+        },
+        {
+            "CD_TYPE": "R05",
+            "DESC_TYPE": "RUSH"
+        },
+        {
+            "CD_TYPE": "R07",
+            "DESC_TYPE": "ALL NEW RUSH"
+        },
+        {
+            "CD_TYPE": "R08",
+            "DESC_TYPE": "RAIZE"
+        },
+        {
+            "CD_TYPE": "S04",
+            "DESC_TYPE": "SIENTA"
+        },
+        {
+            "CD_TYPE": "V01",
+            "DESC_TYPE": "VIOS"
+        },
+        {
+            "CD_TYPE": "V02",
+            "DESC_TYPE": "VOXY"
+        },
+        {
+            "CD_TYPE": "V05",
+            "DESC_TYPE": "NEW VIOS"
+        },
+        {
+            "CD_TYPE": "V08",
+            "DESC_TYPE": "VELLFIRE"
+        },
+        {
+            "CD_TYPE": "Y01",
+            "DESC_TYPE": "YARIS"
+        }
+    ]
+}
+```
+
+_Response (200)_
+```json
+{
+    "OUT_STAT": "F",
+    "OUT_MESS": "TERJADI KESALAHAN",
+    "OUT_DATA": []
+}
+```
+
+## POST /restv2/acccash/transactionplafond/genfilteryearacccash
+
+> Dropdown field for Year that used in ACC Cash
+
+_Request Header_
+```json
+{
+    "X-Content-Type-Options": "nosniff",
+    "X-XSS-Protection": "1; mode=block",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Content-Type": "application/json",
+    "APIKey": "Rz5yS2oiT45Kio1WYOLO"
+}
+```
+
+_Request Body_
+```json
+{
+    "doGenFilterYearAcccash" : {
+        "P_CD_BRAND" : "",
+        "P_CD_TYPE" : "",
+        "P_CD_MODEL" : ""
+    }
+}
+```
+
+_Response (200 - OK)_
+```json
+{
+    "OUT_STAT": "T",
+    "OUT_MESS": "DATA YEAR DITEMUKAN",
+    "OUT_DATA": [
+        {
+            "YEAR": "2019"
         }
     ]
 }
