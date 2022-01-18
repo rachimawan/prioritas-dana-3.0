@@ -11,7 +11,6 @@ Dan membuat Landing Page baru khusus Prioritas Dana di website ACC One.
 - POST /restv2/acccash/cms/updapplycmsacccash
 - POST /restv2/acccash/transactionplafond/getavlplafondacccash
 - POST /restv2/acccash/transactionplafond/getlistplafondacccash
-- POST /restv2/acccash/transactionplafond/getlistplafondacccash
 - POST /restv2/acccoid/gcm/getdetailgcmaccweb
 - POST /restv2/acccoid/gcm/getcontentacccash
 - POST /restv2/acccash/transactionplafond/checkautodebet
@@ -50,39 +49,41 @@ _Request Body_
 ```json
 {
     "doUpdApplyCmsAcccash" : {
-        "P_GUID" : null,
-        "P_LANGUAGE" : null,
-        "P_NO_AGGR" : null,
-        "P_DISBURSEMENT" : null,
-        "P_AMT_INSTALLMENT" : null,
-        "P_TENOR" : null,
-        "P_TUJUAN_PENGGUNAAN" : null,
-        "P_ID_USER_UPDATED" : "1",
-        "P_STATUS" : null,
-        "P_REASON" : null,
-        "P_PENYEDIA" : null,
-        "P_LEADS_ID" : null,
-        "P_NO_REGISTRATION" : null,
-        "P_PEFINDO_SCORE" : null,
-        "P_PEFINDO_DETAIL" : null,
-        "P_ID_SIMULATION" : null,
-        "P_CD_BANK" : null,
-        "P_ACCOUNT_NUMBER" : null,
-        "P_ACCOUNT_NAME" : null,
-        "P_BANK_NAME" : null,
-        "P_EXP_STNK" : null,
-        "P_FLAG_READ" : null,
-        "P_SOURCE" : null,
-        "P_FLAG_DISBURSEMENT" : null,
-        "P_STATUS_MASKAPAI" : null,
-        "P_NO_POLIS" : null,
-        "P_AR_TLO" : null,
-        "P_PLATFORM" : null,
-        "P_STATUS_PERNIKAHAN" : null,
-        "P_NO_NPWP" : null,
-        "P_NO_KK" : null,
-        "P_FLAG_BPKB" : null,
-        "P_SIGNATURE" : "f0520be62240617148c28c7c38bab752fa837717a145a17c744f21ce522b0057"
+        "P_ID_APPLY" : null,
+        "P_NPWP_BO" : null,
+        "P_NIK_BO" : null,
+        "P_LN_ID_ADDR1_BO" : null,
+        "P_LN_ID_ADDR2_BO" : null,
+        "P_NO_RT_RW_ID_BO" : null,
+        "P_AREA1_ID_BO" : null,
+        "P_AREA2_ID_BO" : "1",
+        "P_CITY_ID_BO" : null,
+        "P_POST_CODE_ID_BO" : null,
+        "P_AGAMA_BO" : null,
+        "P_STATUS_PERNIKAHAN_BO" : null,
+        "P_JOB_BO" : null,
+        "P_KEWARGANEGARAAN_BO" : null,
+        "P_DT_EXP_ID_BO" : null,
+        "P_NAME_CO" : null,
+        "P_EMAIL_CO" : null,
+        "P_PHONE_MOBILE1_CO" : null,
+        "P_PHONE_MOBILE2_CO" : null,
+        "P_LN_ID_ADDR1_CO" : null,
+        "P_LN_ID_ADDR2_CO" : null,
+        "P_NO_RT_RW_ID_CO" : null,
+        "P_AREA1_ID_CO" : null,
+        "P_AREA2_ID_CO" : null,
+        "P_CITY_ID_CO" : null,
+        "P_POST_CODE_ID_CO" : null,
+        "P_NO_KTP_CO" : null,
+        "P_TTL_CO" : null,
+        "P_SEX_CO" : null,
+        "P_AGAMA_CO" : null,
+        "P_STATUS_PERNIKAHAN_CO" : null,
+        "P_JOB_CO" : null,
+        "P_KEWARGANEGARAAN_CO" : null,
+        "P_DT_EXP_ID_CO" : null,
+        "P_SIGNATURE" : "affb520c1e0051be55243b7e0c8e35d4072956c8f94e974d8e1c2d152d201baf"
     }
 }
 ```
@@ -174,7 +175,7 @@ _Request Body_
 {
     "doGetListPlafondAcccash" : {
         "P_LANGUAGE" : null,
-        "P_NO_AGGR" : null
+        "P_NO_AGGR" : "01100103004043071"
     }
 }
 ```
@@ -182,20 +183,50 @@ _Request Body_
 _Response (200 - OK)_
 ```json
 {
-        "out_stat": "T",
-        "out_mess": "DATA BERHASIL",
-        "out_data": [
-        {
-            "NOMINAL": "8000000",
-            "PRODUCT": "Upgrade Asuransi",
-            "WORDING": "E-endorsement langsung terbit",
-            "ID": "4",
-            "FLAG_READ": "Y",
-            "FLAG_CALCULATOR": "N",
-            "SOURCE": "ENDORSEMENT",
-            "STATUS_APPL": null
-        }
-    ]
+	"OUT_STAT": "T",
+	"OUT_MESS": "DATA PROCEDED",
+	"OUT_DATA": [
+		{
+			"NOMINAL": "17140000",
+			"PRODUCT": "Pendanaan Jangka Pendek",
+			"WORDING": "Cukup Lampirkan foto STNK & 2 sisi mobil",
+			"ID": "1",
+			"FLAG_READ": "Y",
+			"FLAG_CALCULATOR": "Y",
+			"SOURCE": null,
+			"STATUS_APPL": null
+		},
+		{
+			"NOMINAL": "17140000",
+			"PRODUCT": "Pendanaan Jangka Pendek",
+			"WORDING": "Pencairan maksimal 30 juta",
+			"ID": "1",
+			"FLAG_READ": "Y",
+			"FLAG_CALCULATOR": "Y",
+			"SOURCE": null,
+			"STATUS_APPL": null
+		},
+		{
+			"NOMINAL": "32000000",
+			"PRODUCT": "Topup",
+			"WORDING": "Pencairan lebih dari 30 juta",
+			"ID": "2",
+			"FLAG_READ": "Y",
+			"FLAG_CALCULATOR": "Y",
+			"SOURCE": null,
+			"STATUS_APPL": null
+		},
+		{
+			"NOMINAL": "91440000",
+			"PRODUCT": "Pendanaan Baru",
+			"WORDING": "Pencairan lebih besar dengan menggunakan jaminan baru",
+			"ID": "3",
+			"FLAG_READ": "Y",
+			"FLAG_CALCULATOR": "N",
+			"SOURCE": null,
+			"STATUS_APPL": "Y"
+		}
+	]
 }
 ```
 
@@ -646,7 +677,7 @@ _Request Body_
 ```json
 {
     "doCheckTopupAcccash" : {
-        "P_NO_AGGR" : null
+        "P_NO_AGGR" : "01100103004798554"
     }
 }
 ```
@@ -788,25 +819,26 @@ _Request Body_
 ```json
 {
     "doGetPlafondPbAcccash" : {
-        "P_CD_BRAND" : null,
-        "P_CD_TYPE" : null,
-        "P_CD_MODEL" : null,
-        "P_TAHUN" : null,
-        "P_LANGUAGE" : null
+        "P_CD_BRAND" : "002",
+        "P_CD_TYPE" : "G01",
+        "P_CD_MODEL" : "153",
+        "P_TAHUN" : "2008",
+        "P_LANGUAGE" : "",
+        "P_NO_AGGR" : "01100103004899407"
     }
-} 
+}
 ```
 
 _Response (200 - OK)_
 ```json
 {
-    "OUT_STAT": "T",
-    "OUT_MESS": "DATA BERHASIL DIPROSES",
-    "OUT_DATA": [
-        {
-            "PLAFOND": "27000000"
-        }
-    ]
+	"OUT_STAT": "T",
+	"OUT_MESS": "DATA PROCEDED",
+	"OUT_DATA": [
+		{
+			"PLAFOND": "16820000"
+		}
+	]
 }
 ```
 
@@ -959,8 +991,8 @@ _Request Body_
 ```json
 {
     "doGenFilterModelAcccash" : {
-        "P_CD_BRAND" : "",
-        "P_CD_TYPE" : ""
+        "P_CD_BRAND" : "001",
+        "P_CD_TYPE" : "A20"
     }
 }
 ```
@@ -1092,7 +1124,7 @@ _Request Body_
 ```json
 {
     "doGenFilterTypeAcccash" : {
-        "P_CD_BRAND" : ""
+        "P_CD_BRAND" : "001"
     }
 }
 ```
@@ -1352,9 +1384,9 @@ _Request Body_
 ```json
 {
     "doGenFilterYearAcccash" : {
-        "P_CD_BRAND" : "",
-        "P_CD_TYPE" : "",
-        "P_CD_MODEL" : ""
+        "P_CD_BRAND" : "001",
+        "P_CD_TYPE" : "A20",
+        "P_CD_MODEL" : "001"
     }
 }
 ```
